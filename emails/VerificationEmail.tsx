@@ -12,7 +12,7 @@ import {
   Hr,
   Link,
 } from "@react-email/components";
-import { Property } from 'csstype';
+import { Property } from "csstype";
 
 interface VerificationEmailProps {
   username: string;
@@ -99,6 +99,7 @@ export default function VerificationEmail({
 
           {/* CTA Section */}
           <Section style={ctaSection}>
+            {/* TODO: add link to verify account */}
             <Button style={button} href="https://example.com/verify">
               Verify My Account
             </Button>
@@ -210,7 +211,14 @@ const subheading = {
   margin: "0",
 };
 
-const otpSection: { textAlign: Property.TextAlign; backgroundColor: string; borderRadius: string; padding: string; margin: string; boxShadow: string } = {
+const otpSection: {
+  textAlign: Property.TextAlign;
+  backgroundColor: string;
+  borderRadius: string;
+  padding: string;
+  margin: string;
+  boxShadow: string;
+} = {
   textAlign: "center",
   backgroundColor: "#ffffff",
   borderRadius: "8px",
@@ -233,7 +241,6 @@ const otpDescription = {
   color: "#6b7280",
   margin: "0",
 };
-
 
 const ctaSection: { textAlign: Property.TextAlign; margin: string } = {
   textAlign: "center",
