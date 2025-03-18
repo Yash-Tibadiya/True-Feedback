@@ -121,3 +121,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+[data-sonner-toast] [data-description] {
+  color: hsl(240 10% 3.9%);
+}
+
+.dark [data-sonner-toast] [data-description] {
+  color: hsl(0 0% 98%);
+}
