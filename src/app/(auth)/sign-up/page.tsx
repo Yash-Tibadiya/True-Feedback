@@ -2,6 +2,7 @@
 
 import * as z from "zod";
 import Link from "next/link";
+import Image from "next/image";
 import { Loader2, Mail, Lock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,7 +24,6 @@ import { useDebounceCallback } from "usehooks-ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@/schemas/signUpSchema";
 import { ApiResponse } from "@/types/ApiResponse";
-import Image from "next/image";
 
 export default function SignUpForm() {
   const [username, setUsername] = useState<string>("");
@@ -99,7 +99,7 @@ export default function SignUpForm() {
             <div className="mb-8 space-y-4">
               <div className="w-12 h-12 mb-2">
                 <Image
-                  src="/extra/feedback_2159429.png"
+                  src="/extra/saas.png"
                   alt="Image"
                   width={300}
                   height={300}
