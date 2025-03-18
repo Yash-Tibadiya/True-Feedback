@@ -24,7 +24,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@/schemas/signUpSchema";
 import { ApiResponse } from "@/types/ApiResponse";
 import Image from "next/image";
-import { ModeToggle } from "@/components/mode-toggle";
 
 export default function SignUpForm() {
   const [username, setUsername] = useState<string>("");
@@ -93,11 +92,10 @@ export default function SignUpForm() {
 
   return (
     <>
-      <div className="flex flex-col min-h-screen transition-colors duration-300 bg-white lg:flex-row dark:bg-black dark:bg-gradient-to-tr bg-gradient-to-tr from-white to-stone-900 dark:from-black dark:to-blue-900 overflow-hidden">
-        {/* Left column - Form */}
-        <div className="flex flex-col items-center justify-center flex-1 p-4 sm:p-8 md:p-12 lg:p-16">
-          <ModeToggle />
-          <div className="w-full max-w-md">
+      <div className="relative flex min-h-screen transition-colors duration-300 bg-white dark:bg-black dark:bg-gradient-to-tr bg-gradient-to-tr from-white to-blue-950 dark:from-black dark:to-blue-900 overflow-hidden">
+        {/* Form Content */}
+        <div className="flex flex-col items-start justify-center w-full p-4 sm:p-8 md:p-12 lg:pl-20 lg:pr-0 z-10">
+          <div className="w-full max-w-lg lg:pl-20">
             <div className="mb-8 space-y-4">
               <div className="w-12 h-12 mb-2">
                 <Image
@@ -249,22 +247,17 @@ export default function SignUpForm() {
           </div>
         </div>
 
-        {/* Right column - Image (visible on larger screens) */}
-        <div className="relative hidden lg:block lg:w-1/2">
-          <div className="absolute inset-0 flex justify-center">
-            <div className="flex items-center justify-center w-full h-full">
-              {/* TODO: add background image  */}
-              <div>
-                <Image
-                  src="/extra/bg2.png"
-                  alt="Integration Platform"
-                  width={500}
-                  height={500}
-                  className="rounded-lg w-3/5 h-3/5 "
-                  priority
-                />
-              </div>
-            </div>
+        {/* Background Image - Positioned to be half-shown/half-hidden */}
+        <div className="absolute top-0 right-0 h-full w-7/10 overflow-hidden hidden lg:block">
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/4">
+            <Image
+              src="/extra/bg2.png"
+              alt="Integration Platform"
+              width={1920}
+              height={1080}
+              className="rounded-lg"
+              priority
+            />
           </div>
         </div>
       </div>
