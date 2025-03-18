@@ -72,10 +72,10 @@ export default function VerifyPage() {
                 />
               </div>
               <h1 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl dark:text-white">
-                Get started!
+                Join True Feedback!
               </h1>
               <p className="text-base text-gray-600 dark:text-gray-400">
-                Please enter your email address to receive the code.
+                Enter the verification code sent to your email.
               </p>
             </div>
 

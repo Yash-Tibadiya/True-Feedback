@@ -97,7 +97,7 @@ export default function SignUpForm() {
         <div className="flex flex-col items-start justify-center w-full p-4 sm:p-8 md:p-12 lg:pl-20 lg:pr-0 z-10">
           <div className="w-full max-w-lg lg:pl-20">
             <div className="mb-8 space-y-4">
-              <div className="w-12 h-12 mb-2">
+              <div className="w-16 h-16 mb-2">
                 <Image
                   src="/extra/saas.png"
                   alt="Image"
@@ -106,10 +106,10 @@ export default function SignUpForm() {
                 />
               </div>
               <h1 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl dark:text-white">
-                Get started!
+                Join True Feedback!
               </h1>
               <p className="text-base text-gray-600 dark:text-gray-400">
-                Please enter your email address to receive the code.
+                Sign up to start your anonymous adventure
               </p>
             </div>
 
