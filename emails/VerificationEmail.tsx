@@ -100,7 +100,10 @@ export default function VerificationEmail({
           {/* CTA Section */}
           <Section style={ctaSection}>
             {/* TODO: add link to verify account */}
-            <Button style={button} href="https://example.com/verify">
+            <Button
+              style={button}
+              href={`http://localhost:3000/verify/${username}`}
+            >
               Verify My Account
             </Button>
           </Section>
