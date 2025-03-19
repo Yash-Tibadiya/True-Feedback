@@ -10,7 +10,7 @@ export async function GET() {
   await dbConnect();
 
   const session = await getServerSession(authOptions);
-  const _user: NextAuthUser = session?.user;
+  const _user = session?.user as NextAuthUser | undefined;
 
   if (!session || !_user) {
     return Response.json(
@@ -19,9 +19,25 @@ export async function GET() {
     );
   }
 
-  const userId = new mongoose.Types.ObjectId(_user._id);
-
   try {
+    const userId = new mongoose.Types.ObjectId(_user._id);
+
+    // First check if the user exists
+    const userExists = await User.findById(userId);
+
+    if (!userExists) {
+      return Response.json(
+        { success: false, message: "User not found" },
+        { status: 404 }
+      );
+    }
+
+    // If user exists but has no messages, return an empty array
+    if (!userExists.messages || userExists.messages.length === 0) {
+      return Response.json({ success: true, messages: [] }, { status: 200 });
+    }
+
+    // If user has messages, use the aggregation pipeline
     const user = await User.aggregate([
       { $match: { _id: userId } },
       { $unwind: "$messages" },
@@ -29,18 +45,12 @@ export async function GET() {
       { $group: { _id: "$_id", messages: { $push: "$messages" } } },
     ]).exec();
 
-    if (!user || user.length === 0) {
-      return Response.json(
-        { success: false, message: "User not found1" },
-        { status: 404 }
-      );
-    }
-
     return Response.json(
-      { success: true, messages: user[0].messages },
+      { success: true, messages: user[0]?.messages || [] },
       { status: 200 }
     );
   } catch (error) {
+    console.error("Error fetching messages:", error);
     return Response.json(
       { success: false, message: "Database error", error },
       { status: 500 }
