@@ -63,21 +63,22 @@ export default function SendMessage() {
   const onSubmit = async (data: z.infer<typeof messageSchema>) => {
     setIsLoading(true);
     try {
-      const response = await axios.post<ApiResponse>("/api/send-message", {
+      const response = await axios.post<ApiResponse>("/api/send-messages", {
         ...data,
         username,
       });
 
       toast.success("Success", {
         description: response.data.message,
-      })
+      });
       form.reset({ ...form.getValues(), content: "" });
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
+      
       toast.error("Error", {
         description:
           axiosError.response?.data.message ?? "Error sending message",
-      })
+      });
     } finally {
       setIsLoading(false);
     }

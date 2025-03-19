@@ -1,6 +1,5 @@
 import dbConnect from "@/lib/dbConnect";
 import User from "@/model/User.model";
-
 import { IMessage } from "@/model/User.model";
 
 export async function POST(request: Request) {
@@ -35,6 +34,7 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (error) {
+    console.error("Error in database operation:", error); // Added log
     return Response.json(
       { success: false, message: "Database error", error },
       { status: 500 }
