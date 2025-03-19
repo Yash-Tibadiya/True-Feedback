@@ -9,7 +9,6 @@ export async function middleware(request: NextRequest) {
 
   if (token) {
     if (
-      url.pathname === "/" ||
       url.pathname === "/sign-in" ||
       url.pathname === "/sign-up" ||
       url.pathname === "/verify"
