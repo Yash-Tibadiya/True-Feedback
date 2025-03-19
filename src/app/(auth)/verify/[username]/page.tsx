@@ -20,7 +20,6 @@ import {
 import { useForm } from "react-hook-form";
 import { ApiResponse } from "@/types/ApiResponse";
 import { verifySchema } from "@/schemas/verifySchema";
-import { ModeToggle } from "@/components/mode-toggle";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useParams } from "next/navigation";
 
@@ -59,7 +58,6 @@ export default function VerifyPage() {
     <>
       <div className="relative flex min-h-screen transition-colors duration-300 bg-white dark:bg-black dark:bg-gradient-to-tr bg-gradient-to-tr from-white to-blue-950 dark:from-black dark:to-blue-900 overflow-hidden">
         {/* Form Content */}
-        <ModeToggle />
         <div className="flex flex-col items-start justify-center w-full p-4 sm:p-8 md:p-12 lg:pl-20 lg:pr-0 z-10">
           <div className="w-full max-w-lg lg:pl-20">
             <div className="mb-8 space-y-4">
