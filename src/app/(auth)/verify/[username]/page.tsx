@@ -134,14 +134,21 @@ export default function VerifyPage() {
 
         {/* Background Image - Positioned to be half-shown/half-hidden */}
         <div className="absolute top-0 right-0 h-full w-7/10 overflow-hidden hidden lg:block">
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/4">
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/4 border-[10px] border-gray-400 dark:border-gray-800 rounded-2xl">
             <Image
-              src="/extra/bg2.png"
+              src="/extra/s1.png"
               alt="Integration Platform"
-              layout="intrinsic"
               width={1920}
               height={1080}
-              className="rounded-lg"
+              className="rounded-md block dark:hidden"
+              priority
+            />
+            <Image
+              src="/extra/s2.png"
+              alt="Integration Platform"
+              width={1920}
+              height={1080}
+              className="rounded-md hidden dark:block"
               priority
             />
           </div>
