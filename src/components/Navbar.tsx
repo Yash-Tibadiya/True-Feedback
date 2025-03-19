@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <nav
       data-state={menuState ? "active" : ""}
-      className="fixed z-20 w-full border-b border-dashed dark:border-slate-700 bg-white backdrop-blur md:relative dark:bg-zinc-950/50 lg:dark:bg-transparent"
+      className="fixed z-20 w-full border-b border-dashed dark:border-slate-700 bg-transparent backdrop-blur md:relative lg:dark:bg-transparent"
     >
       <div className="m-auto max-w-6xl">
         <div className="flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
@@ -52,7 +52,7 @@ const Navbar = () => {
             {/* ModeToggle for theme switching */}
             <div className="lg:pr-4">
               {session ? (
-                <span className="text-lg text-gray-700 dark:text-gray-300">
+                <span className="text-lg font-bold text-gray-700 dark:text-gray-300">
                   Welcome, {session?.user?.username || session?.user?.email}
                 </span>
               ) : (
@@ -83,7 +83,7 @@ const Navbar = () => {
                     className="p-5"
                     onClick={() => signOut()}
                   >
-                    <Link href="#">
+                    <Link href="/sign-in">
                       <span>Logout</span>
                     </Link>
                   </Button>
