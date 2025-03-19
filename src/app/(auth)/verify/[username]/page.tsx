@@ -30,6 +30,9 @@ export default function VerifyPage() {
   // Zod validation implementation
   const form = useForm<z.infer<typeof verifySchema>>({
     resolver: zodResolver(verifySchema),
+    defaultValues: {
+      code: "",
+    },
   });
 
   const onSubmit = async (data: z.infer<typeof verifySchema>) => {
@@ -65,6 +68,7 @@ export default function VerifyPage() {
                 <Image
                   src="/extra/saas.png"
                   alt="Image"
+                  layout="intrinsic"
                   width={300}
                   height={300}
                 />
@@ -96,7 +100,6 @@ export default function VerifyPage() {
                         </div>
                         <Input
                           {...field}
-                          name="code"
                           className="pl-10 bg-white border border-gray-300 rounded-lg dark:bg-gray-900 dark:border-gray-700 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400"
                           placeholder="Enter your verification code"
                         />
@@ -135,6 +138,7 @@ export default function VerifyPage() {
             <Image
               src="/extra/bg2.png"
               alt="Integration Platform"
+              layout="intrinsic"
               width={1920}
               height={1080}
               className="rounded-lg"
