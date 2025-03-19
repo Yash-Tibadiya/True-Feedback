@@ -18,12 +18,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 import * as z from "zod";
 import { ApiResponse } from "@/types/ApiResponse";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { messageSchema } from "@/schemas/messageSchema";
-import { toast } from "sonner";
 
 const specialChar = "||";
 
@@ -70,14 +70,14 @@ export default function SendMessage() {
 
       toast.success("Success", {
         description: response.data.message,
-      });
+      })
       form.reset({ ...form.getValues(), content: "" });
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
       toast.error("Error", {
         description:
           axiosError.response?.data.message ?? "Error sending message",
-      });
+      })
     } finally {
       setIsLoading(false);
     }
