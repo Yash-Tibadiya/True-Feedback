@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
     if (
       url.pathname === "/sign-in" ||
       url.pathname === "/sign-up" ||
-      url.pathname === "/verify" // TODO: not working
+      url.pathname.startsWith("/verify")
     ) {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }
