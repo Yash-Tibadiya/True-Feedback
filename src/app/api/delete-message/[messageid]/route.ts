@@ -4,11 +4,11 @@ import dbConnect from "@/lib/dbConnect";
 import { User as NextAuthUser } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/options";
 
-export async function DELETE(
-  request: Request,
-  { params }: { params: { messageid: string } }
-) {
-  const messageId = params.messageid;
+type tParams = Promise<{ messageid: string }>;
+
+export async function DELETE(request: Request, props: { params: tParams }) {
+  const { params } = props;
+  const { messageid: messageId } = await params;
   await dbConnect();
   const session = await getServerSession(authOptions);
   const _user: NextAuthUser = session?.user;
