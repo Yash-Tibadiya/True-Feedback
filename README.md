@@ -9,6 +9,13 @@ Empower your team with AI-driven insights while protecting privacy. Trusted by i
 
 ---
 
+![True Feedback Preview](https://img.enacton.com/ShareX/2025/03/Screenshot%202025-03-20%20143632.png)
+
+![True Feedback Preview](https://github.com/Yash-Tibadiya/True-Feedback/blob/main/public/extra/s3.png)
+
+![True Feedback Preview](https://img.enacton.com/ShareX/2025/03/Screenshot%202025-03-20%20143647.png)
+
+
 ## ✨ Features
 
 ### ⚡ Real-Time Feedback
