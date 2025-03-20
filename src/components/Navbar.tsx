@@ -5,7 +5,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "./mode-toggle";
+// import { ModeToggle } from "./mode-toggle";
 import Image from "next/image";
 
 const Navbar = () => {
@@ -57,7 +57,7 @@ const Navbar = () => {
                 </span>
               ) : (
                 <div className="flex space-x-3">
-                  <ModeToggle />
+                  {/* <ModeToggle /> */}
                   <Button asChild variant="outline" size="sm" className="p-5">
                     <Link href="/sign-in">
                       <span>Login</span>
@@ -75,7 +75,7 @@ const Navbar = () => {
             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
               {session && (
                 <>
-                  <ModeToggle />
+                  {/* <ModeToggle /> */}
                   <Button
                     asChild
                     variant="outline"
