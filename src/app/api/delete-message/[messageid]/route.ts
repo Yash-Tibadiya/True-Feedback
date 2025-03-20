@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import User from "@/model/User.model";
 import { getServerSession } from "next-auth/next";
 import dbConnect from "@/lib/dbConnect";
@@ -6,20 +5,18 @@ import { User as NextAuthUser } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/options";
 
 export async function DELETE(
-  request: NextApiRequest,
-  response: NextApiResponse,
+  request: Request,
   { params }: { params: { messageid: string } }
 ) {
   const messageId = params.messageid;
   await dbConnect();
   const session = await getServerSession(authOptions);
   const _user: NextAuthUser = session?.user;
-
   if (!session || !_user) {
-    return response.status(401).json({
-      success: false,
-      message: "Not authenticated"
-    });
+    return Response.json(
+      { success: false, message: "Not authenticated" },
+      { status: 401 }
+    );
   }
 
   try {
@@ -29,21 +26,21 @@ export async function DELETE(
     );
 
     if (updateResult.modifiedCount === 0) {
-      return response.status(404).json({
-        message: "Message not found or already deleted",
-        success: false
-      });
+      return Response.json(
+        { message: "Message not found or already deleted", success: false },
+        { status: 404 }
+      );
     }
 
-    return response.status(200).json({
-      message: "Message deleted",
-      success: true
-    });
+    return Response.json(
+      { message: "Message deleted", success: true },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error deleting message:", error);
-    return response.status(500).json({
-      message: "Error deleting message",
-      success: false
-    });
+    return Response.json(
+      { message: "Error deleting message", success: false },
+      { status: 500 }
+    );
   }
 }
