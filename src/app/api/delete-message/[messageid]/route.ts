@@ -5,11 +5,17 @@ import { User as NextAuthUser } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/options";
 import { NextRequest, NextResponse } from "next/server";
 
+interface DeleteMessageContext {
+  params: {
+    messageid: string;
+  };
+}
+
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { messageid: string } }
+  context: DeleteMessageContext
 ) {
-  const messageId = params.messageid;
+  const messageId = context.params.messageid;
   await dbConnect();
 
   const session = await getServerSession(authOptions);
