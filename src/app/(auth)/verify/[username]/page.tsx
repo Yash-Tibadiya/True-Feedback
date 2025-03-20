@@ -65,13 +65,15 @@ export default function VerifyPage() {
           <div className="w-full max-w-lg lg:pl-20">
             <div className="mb-8 space-y-4">
               <div className="w-16 h-16 mb-2">
-                <Image
-                  src="/extra/saas.png"
-                  alt="Image"
-                  layout="intrinsic"
-                  width={300}
-                  height={300}
-                />
+                <Link href="/" aria-label="go home">
+                  <Image
+                    src="/extra/saas.png"
+                    alt="Image"
+                    layout="intrinsic"
+                    width={300}
+                    height={300}
+                  />
+                </Link>
               </div>
               <h1 className="text-3xl font-bold tracking-tight text-gray-900 md:text-4xl dark:text-white">
                 Join True Feedback!
