@@ -1,3 +1,5 @@
+import ContentSection from "@/components/content-2";
+import FooterSection from "@/components/footer";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Cpu, Lock, Sparkles, Zap } from "lucide-react";
@@ -26,15 +28,16 @@ export default function Home() {
             <div className="relative max-w-5xl px-6 mx-auto py-28 lg:py-24">
               <div className="relative z-10 max-w-2xl mx-auto text-center">
                 <h1 className="text-4xl font-semibold text-balance md:text-5xl lg:text-6xl">
-                  Modern Software testing reimagined
+                  Dive into the World of Anonymous Feedback
                 </h1>
                 <p className="max-w-2xl mx-auto my-8 text-xl">
-                  Officiis laudantium excepturi ducimus rerum dignissimos, and
-                  tempora nam vitae, excepturi ducimus iste provident dolores.
+                  Share your thoughts freely and without hesitation. Your voice
+                  matters, your privacy is our priority, and feedback is always
+                  anonymous.
                 </p>
 
                 <Button asChild size="lg">
-                  <Link href="#">
+                  <Link href="/dashboard">
                     <span className="btn-label">Start Building</span>
                   </Link>
                 </Button>
@@ -174,88 +177,92 @@ export default function Home() {
           </section>
 
           <section className="overflow-hidden py-16 md:py-32">
-            <div className="mx-auto max-w-6xl space-y-8 px-6 md:space-y-12">
+            <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-12">
               <div className="relative z-10 max-w-2xl">
                 <h2 className="text-4xl font-semibold lg:text-5xl">
-                  Built for Scaling teams
+                  Designed for Seamless Feedback Integration
                 </h2>
                 <p className="mt-6 text-lg">
-                  Empower your team with workflows that adapt to your needs,
-                  whether you prefer git synchronization or a AI Agents
-                  interface.
+                  Empower your team with anonymous feedback workflows that adapt
+                  to your needs, whether you prefer secure feedback channels or
+                  AI-driven insights.
                 </p>
               </div>
-              <div className="relative -mx-4 rounded-3xl p-3 md:-mx-12 lg:col-span-3">
-                <div className="perspective-midrange">
-                  <div className="rotate-x-6 -skew-2">
-                    <div className="aspect-88/36 relative">
-                      <div className="bg-radial-[at_15%_25%] to-background z-1 -inset-17 absolute from-transparent to-75%"></div>
-                      <Image
-                        src="/extra/mail-upper.png"
-                        className="absolute inset-0 z-10"
-                        alt="payments illustration dark"
-                        width={2797}
-                        height={1137}
-                      />
-                      <Image
-                        src="/extra/mail-back.png"
-                        className="hidden dark:block"
-                        alt="payments illustration dark"
-                        width={2797}
-                        height={1137}
-                      />
-                      <Image
-                        src="/extra/mail-back-light.png"
-                        className="dark:hidden"
-                        alt="payments illustration light"
-                        width={2797}
-                        height={1137}
-                      />
-                    </div>
-                  </div>
+              <div className="relative rounded-3xl p-3 md:-mx-8 lg:col-span-3">
+                <div className="aspect-88/36 relative">
+                  <div className="bg-linear-to-t z-1 from-background absolute inset-0 to-transparent"></div>
+                  <Image
+                    src="/extra/mail-upper.png"
+                    className="absolute inset-0 z-10"
+                    alt="payments illustration dark"
+                    width={2797}
+                    height={1137}
+                  />
+                  <Image
+                    src="/extra/mail-back.png"
+                    className="hidden dark:block"
+                    alt="payments illustration dark"
+                    width={2797}
+                    height={1137}
+                  />
+                  <Image
+                    src="/extra/mail-back-light.png"
+                    className="dark:hidden"
+                    alt="payments illustration light"
+                    width={2797}
+                    height={1137}
+                  />
                 </div>
               </div>
               <div className="relative mx-auto grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-8 lg:grid-cols-4">
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <Zap className="size-4" />
-                    <h3 className="text-sm font-medium">Faaast</h3>
+                    <Zap className="size-5" />
+                    <h3 className="text-lg font-medium">Faaast</h3>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    It supports an entire helping developers and innovate.
+                    Collect and analyze feedback in real-time to drive immediate
+                    insights and improvements.
                   </p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Cpu className="size-4" />
-                    <h3 className="text-sm font-medium">Powerful</h3>
+                    <Cpu className="size-5" />
+                    <h3 className="text-lg font-medium">Powerful</h3>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    It supports an entire helping developers and businesses.
+                    Equip your team with robust tools to manage and leverage
+                    anonymous feedback for better decision-making.
                   </p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Lock className="size-4" />
-                    <h3 className="text-sm font-medium">Security</h3>
+                    <Lock className="size-5" />
+                    <h3 className="text-lg font-medium">Security</h3>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    It supports an helping developers businesses innovate.
+                    Ensure complete confidentiality with secure, anonymous
+                    feedback that protects your team&apos;s privacy.
                   </p>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="size-4" />
+                    <Sparkles className="size-5" />
 
-                    <h3 className="text-sm font-medium">AI Powered</h3>
+                    <h3 className="text-lg font-medium">AI Powered</h3>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    It supports an helping developers businesses innovate.
+                    Leverage AI-driven insights to understand trends and
+                    patterns in feedback to foster innovation.
                   </p>
                 </div>
               </div>
             </div>
           </section>
+
+          <ContentSection />
+
+          <FooterSection />
         </main>
       </div>
     </>
