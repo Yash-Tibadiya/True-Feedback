@@ -5,15 +5,14 @@ import { User as NextAuthUser } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/options";
 import { NextRequest, NextResponse } from "next/server";
 
-interface DeleteMessageContext {
-  params: {
-    messageid: string;
-  };
-}
-
+// Using the expected type pattern for App Router in Next.js 15
 export async function DELETE(
-  request: NextRequest,
-  context: DeleteMessageContext
+  req: NextRequest,
+  context: {
+    params: {
+      messageid: string;
+    };
+  }
 ) {
   const messageId = context.params.messageid;
   await dbConnect();
