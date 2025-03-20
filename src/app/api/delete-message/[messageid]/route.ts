@@ -5,20 +5,16 @@ import { User as NextAuthUser } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/options";
 import { NextRequest, NextResponse } from "next/server";
 
-type Params = {
-  params: {
-    messageid: string;
-  };
-};
-
 export async function DELETE(
   request: NextRequest,
-  { params }: Params
+  { params }: { params: { messageid: string } }
 ) {
   const messageId = params.messageid;
   await dbConnect();
+
   const session = await getServerSession(authOptions);
   const _user: NextAuthUser = session?.user;
+
   if (!session || !_user) {
     return NextResponse.json(
       { success: false, message: "Not authenticated" },
