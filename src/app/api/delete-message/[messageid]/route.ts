@@ -3,25 +3,17 @@ import { getServerSession } from "next-auth/next";
 import dbConnect from "@/lib/dbConnect";
 import { User as NextAuthUser } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]/options";
-import { NextRequest, NextResponse } from "next/server";
 
-// Using the expected type pattern for App Router in Next.js 15
 export async function DELETE(
-  req: NextRequest,
-  context: {
-    params: {
-      messageid: string;
-    };
-  }
+  request: Request,
+  { params }: { params: { messageid: string } }
 ) {
-  const messageId = context.params.messageid;
+  const messageId = params.messageid;
   await dbConnect();
-
   const session = await getServerSession(authOptions);
   const _user: NextAuthUser = session?.user;
-
   if (!session || !_user) {
-    return NextResponse.json(
+    return Response.json(
       { success: false, message: "Not authenticated" },
       { status: 401 }
     );
@@ -34,19 +26,19 @@ export async function DELETE(
     );
 
     if (updateResult.modifiedCount === 0) {
-      return NextResponse.json(
+      return Response.json(
         { message: "Message not found or already deleted", success: false },
         { status: 404 }
       );
     }
 
-    return NextResponse.json(
+    return Response.json(
       { message: "Message deleted", success: true },
       { status: 200 }
     );
   } catch (error) {
     console.error("Error deleting message:", error);
-    return NextResponse.json(
+    return Response.json(
       { message: "Error deleting message", success: false },
       { status: 500 }
     );
