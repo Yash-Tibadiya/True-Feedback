@@ -101,7 +101,7 @@ export default function VerificationEmail({
           <Section style={ctaSection}>
             <Button
               style={button}
-              href={`http://localhost:3000/verify/${username}`}
+              href={`https://truefeedback.yash14.me/verify/${username}`}
             >
               Verify My Account
             </Button>
